@@ -2,20 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-/*
-Description: Generate a random password based on user preferences. Ask the user for the length and whether to include numbers and special characters.
-
-Concepts Used: Random class, StringBuilder or character arrays, for loops, if conditions.
-
-GitHub Boost: Explain in your code comments why using Random is okay for a beginner project but not for real-world security.
-*/
-
-/*
-SECURITY NOTE: Using java.util.Random is fine for this beginner project because we're learning basic programming concepts.
-However, for real-world security applications, Random is predictable and not cryptographically secure.
-For production systems, use java.security.SecureRandom instead, which generates truly random, unpredictable values.
-*/
-
 package com.obcodes.basicpasswordgenerator;
 
 import java.util.Random;
