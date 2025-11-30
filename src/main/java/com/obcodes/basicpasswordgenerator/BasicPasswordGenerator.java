@@ -28,34 +28,36 @@ import java.util.Scanner;
 public class BasicPasswordGenerator {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random rand = new Random();
-        
-        // Get password length from user
-        System.out.print("Enter password length: ");
-        int passwordLength = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
-        
-        // Ask about numbers and special characters
-        System.out.print("Do you want your password to consist of numbers and special characters? (yes(y)/no(n): ");
-        String answer = scanner.nextLine().toLowerCase();
-        
-        String generatedPassword;
-        
-        if (answer.equals("yes")||answer.equals("y")) {
-            generatedPassword = generatePasswordWithNumSpecialChar(passwordLength, rand);
-        } else {
-            generatedPassword = generateRandomPassword(passwordLength, rand);
+        try (Scanner scanner = new Scanner(System.in)) {
+            Random rand = new Random();
+            
+            // Get password length from user
+            System.out.print("Enter password length: ");
+            int passwordLength = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+            
+            // Ask about numbers and special characters
+            System.out.print("Do you want your password to consist of numbers and special characters? (yes(y)/no(n): ");
+            String answer = scanner.nextLine().toLowerCase();
+            
+            String generatedPassword;
+            
+            if (answer.equals("yes")||answer.equals("y")) {
+                generatedPassword = generatePasswordWithNumSpecialChar(passwordLength, rand);
+            } else {
+                generatedPassword = generateRandomPassword(passwordLength, rand);
+            }
+            
+            System.out.println("Generated Password: " + generatedPassword);
+            System.out.println("END OF PROGRAM");
         }
-        
-        System.out.println("Generated Password: " + generatedPassword);
-        System.out.println("END OF PROGRAM");
-        
-        scanner.close();
     }
     
     /**
      * Generates a password with only lowercase and uppercase letters
+     * @param length
+     * @param rand
+     * @return 
      */
     public static String generateRandomPassword(int length, Random rand) {
         StringBuilder password = new StringBuilder();
@@ -71,6 +73,9 @@ public class BasicPasswordGenerator {
     
     /**
      * Generates a password with letters, numbers, and special characters
+     * @param length
+     * @param rand
+     * @return 
      */
     public static String generatePasswordWithNumSpecialChar(int length, Random rand) {
         StringBuilder password = new StringBuilder();
